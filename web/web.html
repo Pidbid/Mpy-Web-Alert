@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+		<title></title>
+		<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+	</head>
+	<body></body>
+	<script type="text/javascript">
+		function user_ip(){
+			$.ajax({
+				url:"https://myip.ipip.net",
+				success:function(res){
+					console.log(res);
+					user_scan(res)
+					return res;
+				}
+			})
+		}
+		function user_scan(ip_message){
+			var ws = new WebSocket("Your ws url");
+			ws.onopen = function(){
+				var send_msg = '{"error":0,"ip":"' + ip_message +'"}'
+				ws.send(send_msg);
+			}
+		}
+		user_ip()
+	</script>
+</html>
