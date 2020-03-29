@@ -13,7 +13,7 @@
 ......protocol.py  
 ......logging.py  
 ......main.py  micro python启动默认执行文件
-- web
+- web  
 ......web.html
 ## 2，如何使用 ？How to use?
 - 修改host目录下main.py文件内监听服务的端口，默认为2233端口
